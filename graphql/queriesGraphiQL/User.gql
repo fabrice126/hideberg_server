@@ -1,0 +1,47 @@
+query user {
+  user(id: 5) {
+    username
+    firstname
+    role
+  }
+}
+
+query users {
+  users(offset: 0, limit: 5) {
+    id
+    username
+    role
+    products {
+      id
+      title
+      user_id
+      images {
+        id
+        src
+        product_id
+      }
+    }
+  }
+}
+
+mutation userAdd {
+  userAdd(data: {username: "pseudoo", email: "pseudoo@gmail.com", password: "unmdp"}) {
+    id
+  } 
+}
+
+mutation userLogin {
+  userLogin(email: "pseudoo@gmail.com", password: "unmdp")
+}
+
+mutation userUpdate {
+  userUpdate(id: 101, data: {username: "pseudou", email: "pseudou@gmail.com"}) 
+}
+
+mutation userRemove{
+  userRemove(id:101)
+}
+mutation userRemoveAll{
+  userRemoveAll
+}
+

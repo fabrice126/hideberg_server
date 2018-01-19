@@ -1,0 +1,150 @@
+import { makeExecutableSchema } from 'graphql-tools';
+import resolvers from './resolvers';
+
+const typeDefs = `
+
+
+# OK
+type Annonce{
+    annonce_id:ID
+    annonce_website_id:ID
+    annonce_sector_id:ID
+    annonce_country_id:ID
+    annonce_description:String
+}
+# OK
+type Continent{
+    continent_id:ID
+    continent_label:String
+}
+# OK
+type Country{
+    country_id:ID
+    country_continent_id:ID
+    country_label:String
+    country_politic:String
+    country_cv:String
+    country_diplomatic:String
+}
+# OK
+type Link{
+    link_id:ID
+    link_country_id:ID
+    link_sector_id:ID
+    link_website_id:ID
+    link_label:String
+}
+# OK
+type Sector{
+    sector_id:ID
+    sector_label:String
+}
+# OK
+type User {
+  user_id: ID
+  user_username: String
+  user_email: String
+  user_password: String
+# new fields
+  user_gender: Gender
+  user_firstname: String
+  user_lastname: String
+  user_birthdate:String
+  user_nationality:String
+  user_country: String
+  user_city: String
+  user_actual_city:String
+  user_education_level:String
+  user_affiliated_sector:String
+  user_search_sector:String
+  role: Role
+}
+enum Gender {
+  Male
+  Female
+  Other
+}
+enum Role {
+  DEFAULT
+  PRO
+  ADMIN
+}
+
+# OK
+type Website{
+    website_id:ID
+    website_label:String
+}
+
+
+
+
+# input ProductInput{
+#   title: String!
+#   latitude: Float
+#   longitude: Float
+#   user_id: ID!
+#   images: [ImageInput]  
+# }
+# type Product {
+#   id: ID
+#   title: String
+#   latitude: Float
+#   longitude: Float
+#   user_id: ID
+#   images: [Image]
+# }
+# input ImageInput {
+#   src: String!
+#   product_id: ID!
+# }
+# type Image {
+#   id: ID
+#   src: String
+#   product_id: ID!
+# }
+
+type Query {
+#   user(id: ID!): User
+#   users(offset: Int!, limit:Int!): [User]
+
+#   product(id: ID!): Product
+#   products(offset: Int!, limit:Int!): [Product]
+
+#   image(id: ID!): Image
+#   images(offset: Int!, limit:Int!): [Image]
+}
+
+type Mutation {
+#   userAdd(data: UserInputAdd!): User        
+#   userUpdate(id: ID!, data: UserInputUpdate!): Boolean
+#   userRemove(id: ID!): Boolean
+#   userRemoveAll: Boolean
+
+#   userLogin(email: String!, password: String!): String
+
+#   productAdd(data: ProductInput!): Product
+#   productUpdate(id: ID!, data: ProductInput!): Boolean
+#   productRemove(id: ID!): Boolean
+#   productRemoveAll: Boolean
+
+#   imageAdd(data: ImageInput!): Image
+#   imageUpdate(id: ID!, data: ImageInput!): Boolean
+#   imageRemove(id: ID!): Boolean
+#   imageRemoveAll: Boolean
+}
+`;
+
+
+const logger = { log: (e) => console.log(e) }
+const  resolverValidationOptions = {
+    requireResolversForArgs: true, 
+    requireResolversForNonScalar: true
+}
+export default makeExecutableSchema({ 
+  typeDefs, 
+  resolvers,
+  logger, 
+  resolverValidationOptions
+});
+

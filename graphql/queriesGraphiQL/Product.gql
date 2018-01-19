@@ -1,0 +1,36 @@
+query product {
+  product(id: 5) {
+    id
+    title
+    user_id
+  }
+}
+
+query products {
+  products(offset: 0, limit: 5) {
+    id
+    title
+    images {
+      id
+      src
+      product_id
+    }
+  }
+}
+
+mutation productAdd {
+	productAdd(data:{user_id:1,title:"C'est un title que j'ai écris"}) {
+	  id
+	}
+}
+
+mutation productUpdate {
+  productUpdate(id: 301, data:{user_id:1,title:"C'est un titre que j'ai modifié"}) 
+}
+
+mutation productRemove{
+  productRemove(id:301)
+}
+mutation productRemoveAll{
+  productRemoveAll
+}
