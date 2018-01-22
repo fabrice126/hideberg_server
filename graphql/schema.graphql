@@ -1,6 +1,5 @@
 import { makeExecutableSchema } from 'graphql-tools';
 import resolvers from './resolvers';
-
 const typeDefs = `
 
 
@@ -105,17 +104,30 @@ type Website{
 # }
 
 type Query {
-#   user(id: ID!): User
-#   users(offset: Int!, limit:Int!): [User]
 
-#   product(id: ID!): Product
-#   products(offset: Int!, limit:Int!): [Product]
+    annonce(id: ID!): Annonce
+    annonces(offset: Int!, limit:Int!): [Annonce]
 
-#   image(id: ID!): Image
-#   images(offset: Int!, limit:Int!): [Image]
+    continent(id: ID!): Continent
+    continents(offset: Int!, limit:Int!): [Continent]
+
+    country(id: ID!): Country
+    countries(offset: Int!, limit:Int!): [Country]
+
+    link(id: ID!): Link
+    links(offset: Int!, limit:Int!): [Link]
+
+    sector(id: ID!): Sector
+    sectors(offset: Int!, limit:Int!): [Sector]
+
+    user(id: ID!): User
+    users(offset: Int!, limit:Int!): [User]
+
+    website(id: ID!): Website
+    websites(offset: Int!, limit:Int!): [Website]
 }
 
-type Mutation {
+#type Mutation {
 #   userAdd(data: UserInputAdd!): User        
 #   userUpdate(id: ID!, data: UserInputUpdate!): Boolean
 #   userRemove(id: ID!): Boolean
@@ -132,7 +144,7 @@ type Mutation {
 #   imageUpdate(id: ID!, data: ImageInput!): Boolean
 #   imageRemove(id: ID!): Boolean
 #   imageRemoveAll: Boolean
-}
+#}
 `;
 
 
@@ -141,10 +153,10 @@ const  resolverValidationOptions = {
     requireResolversForArgs: true, 
     requireResolversForNonScalar: true
 }
-export default makeExecutableSchema({ 
-  typeDefs, 
+export default makeExecutableSchema({
+  typeDefs,
   resolvers,
-  logger, 
+  logger,
   resolverValidationOptions
 });
 
