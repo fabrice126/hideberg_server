@@ -20,16 +20,29 @@ export default {
         ...SectorQuery,
         ...UserQuery,
         ...WebsiteQuery
-    }
+    },
     // Mutation: {
     //     ...UserResolver,
     //     ...ProductResolver,
     //     ...ImageResolver
     // },
-    // User: {
-    //     products: (user) => user.getProducts()
-    // },
-    // Product: {
-    //     images: (product) => product.getImages()
-    // }
+    Continent: {
+        countries: (continent) => continent.getCountries()
+    },
+    Country: {
+        annonces: (country) => country.getAnnonces(),
+        links: (country) => country.getLinks()
+    },
+    Sector: {
+        links: (sector) => sector.getLinks(),
+        annonces: (annonce) => annonce.getAnnonces()
+    },
+    Website: {
+        links: (website) => website.getLinks(),
+        annonces: (website) => website.getAnnonces()
+    },
+    User: {
+        user_gender: (user) => user.getUserGender(),
+        user_role: (user) => user.getUserRole(),
+    }
 };

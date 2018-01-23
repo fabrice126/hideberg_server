@@ -15,6 +15,7 @@ type Annonce{
 type Continent{
     continent_id:ID
     continent_label:String
+    countries:[Country]
 }
 # OK
 type Country{
@@ -24,6 +25,8 @@ type Country{
     country_politic:String
     country_cv:String
     country_diplomatic:String
+    annonces:[Annonce]
+    links:[Link]
 }
 # OK
 type Link{
@@ -31,12 +34,14 @@ type Link{
     link_country_id:ID
     link_sector_id:ID
     link_website_id:ID
-    link_label:String
+    link_url:String
 }
 # OK
 type Sector{
     sector_id:ID
     sector_label:String
+    annonces:[Annonce]
+    links:[Link]
 }
 # OK
 type User {
@@ -56,7 +61,7 @@ type User {
   user_education_level:String
   user_affiliated_sector:String
   user_search_sector:String
-  role: Role
+  user_role: Role
 }
 enum Gender {
   Male
@@ -73,6 +78,8 @@ enum Role {
 type Website{
     website_id:ID
     website_label:String
+    annonces:[Annonce]
+    links:[Link]
 }
 
 
@@ -105,26 +112,34 @@ type Website{
 
 type Query {
 
-    annonce(id: ID!): Annonce
-    annonces(offset: Int!, limit:Int!): [Annonce]
+    annonce(annonce_id: ID!): Annonce
+    annonces: [Annonce]
+    annoncesLimit(offset: Int!, limit:Int!): [Annonce]
 
-    continent(id: ID!): Continent
-    continents(offset: Int!, limit:Int!): [Continent]
+    continent(continent_id: ID!): Continent
+    continents: [Continent]
+    continentsLimit(offset: Int!, limit:Int!): [Continent]
+    continentByLabel(continent_label: String!): Continent
 
-    country(id: ID!): Country
-    countries(offset: Int!, limit:Int!): [Country]
+    country(country_id: ID!): Country
+    countries: [Country]
+    countriesLimit(offset: Int!, limit:Int!): [Country]
+    countryByLabel(country_label: String!): Country
 
-    link(id: ID!): Link
-    links(offset: Int!, limit:Int!): [Link]
+    link(link_id: ID!): Link
+    links: [Link]
+    linksLimit(offset: Int!, limit:Int!): [Link]
 
-    sector(id: ID!): Sector
-    sectors(offset: Int!, limit:Int!): [Sector]
+    sector(sector_id: ID!): Sector
+    sectors: [Sector]
+    sectorsLimit(offset: Int!, limit:Int!): [Sector]
 
-    user(id: ID!): User
+    user(user_id: ID!): User
     users(offset: Int!, limit:Int!): [User]
 
-    website(id: ID!): Website
-    websites(offset: Int!, limit:Int!): [Website]
+    website(website_id: ID!): Website
+    websites: [Website]
+    websitesLimit(offset: Int!, limit:Int!): [Website]
 }
 
 #type Mutation {

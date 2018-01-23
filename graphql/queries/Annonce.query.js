@@ -1,4 +1,6 @@
 export default {
-    annonce: (_, { id }, { models: { image } }) => image.findById(id),
-    annonces: (_, args, { models: { image } }) => image.findAll(args),
+    annonce: (_, { id }, { models: { annonce } }) => annonce.findById(id),
+    annonces: (_, args, { models: { annonce } }) => annonce.findAll(),
+    annoncesLimit: (_, args, { models: { annonce } }) => annonce.findAll(args),
+
 }

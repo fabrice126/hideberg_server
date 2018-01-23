@@ -34,7 +34,13 @@ router.get('/link/:sector/:country/count', (req, res, next) => {
   let sector = `${req.params.sector}`;
   let country = `${req.params.country}`;
 
-  let sql = `select count(*) as nbLabel from link l, country c, sector s, website w where l.link_country_id=c.country_id AND l.link_sector_id=s.sector_id AND l.link_website_id = w.website_id AND c.country_label="${country}" AND s.sector_label="${sector}"`;
+  let sql = ` SELECT count(*) as nbLabel 
+              FROM link l, country c, sector s, website w 
+              WHERE l.link_country_id = c.country_id 
+              AND l.link_sector_id = s.sector_id 
+              AND l.link_website_id = w.website_id 
+              AND c.country_label = "${country}" 
+              AND s.sector_label = "${sector}"`;
   let query = req.db.query(sql, (err, results) => {
     if (err) return err;
     res.json({ res: results[0].nbLabel });
@@ -51,7 +57,16 @@ router.get('/link/:sector/:country/:numpage/:nbpage', (req, res, next) => {
   let numpage = `${req.params.numpage}`;
   let elemNbPerPage = `${req.params.nbpage}`;
 
-  let sql = `select link_label, website_label from link l, country c, sector s, website w where l.link_country_id=c.country_id AND l.link_sector_id=s.sector_id AND l.link_website_id = w.website_id AND c.country_label="${country}" AND s.sector_label="${sector}" ORDER BY website_label ASC LIMIT ${elemNbPerPage} OFFSET ${(numpage * elemNbPerPage)}`;
+  let sql = ` SELECT link_label, website_label 
+              FROM link l, country c, sector s, website w 
+              WHERE l.link_country_id = c.country_id 
+              AND l.link_sector_id = s.sector_id 
+              AND l.link_website_id = w.website_id 
+              AND c.country_label = "${country}" 
+              AND s.sector_label = "${sector}" 
+              ORDER BY website_label ASC 
+              LIMIT ${elemNbPerPage} 
+              OFFSET ${(numpage * elemNbPerPage)}`;
   let query = req.db.query(sql, (err, results) => {
     if (err) return  err;
     res.json({ sector: sector, country: country, res: results });
@@ -64,7 +79,9 @@ router.get('/link/:sector/:country/:numpage/:nbpage', (req, res, next) => {
  */
 router.get('/link/:country', (req, res, next) => {
   let country = `${req.params.country}`;
-  let sql = `select country_label, country_politic, country_cv, country_diplomatic from country c where c.country_label="${country}"`;
+  let sql = ` SELECT country_label, country_link_politic, country_link_cv, country_link_diplomatic 
+              FROM country c 
+              WHERE c.country_label = "${country}"`;
   let query = req.db.query(sql, (err, results) => {
     if (err) return  err;
     res.json({ res: results });
@@ -81,7 +98,13 @@ router.get('/confMAP', function (req, res, next) {
 var getWebsites = (req, res, next) => {
   let sector = `${req.params.sector}`;
   let country = `${req.params.country}`;
-  let sql = `select link_label, website_label from link l, country c, sector s, website w where l.link_country_id=c.country_id AND l.link_sector_id=s.sector_id AND l.link_website_id = w.website_id AND c.country_label="${country}" AND s.sector_label="${sector}"`;
+  let sql = ` SELECT link_label, website_label 
+              FROM link l, country c, sector s, website w 
+              WHERE l.link_country_id = c.country_id 
+              AND l.link_sector_id = s.sector_id 
+              AND l.link_website_id = w.website_id 
+              AND c.country_label = "${country}" 
+              AND s.sector_label = "${sector}"`;
   let query = req.db.query(sql, (err, results) => {
     if (err) return  err;
     res.json({ sector: sector, country: country, res: results });
@@ -96,7 +119,14 @@ router.get('/annonce/:sector/:country', (req, res, next) => {
   let sector = `${req.params.sector}`;
   let country = `${req.params.country}`;
 
-  let sql = `select annonce_description, website_label from annonce a, country c, sector s, website w where a.annonce_country_id=c.country_id AND a.annonce_sector_id=s.sector_id AND a.annonce_website_id = w.website_id AND c.country_label="${country}" AND s.sector_label="${sector}" LIMIT 5`;
+  let sql = ` SELECT annonce_description, website_label 
+              FROM annonce a, country c, sector s, website w 
+              WHERE a.annonce_country_id = c.country_id 
+              AND a.annonce_sector_id = s.sector_id 
+              AND a.annonce_website_id = w.website_id 
+              AND c.country_label = "${country}" 
+              AND s.sector_label = "${sector}" 
+              LIMIT 5`;
   let query = req.db.query(sql, (err, results) => {
     if (err) return  err;
     res.json({ sector: sector, country: country, res: results });
@@ -123,7 +153,10 @@ router.get('/user/login/:email/:password', (req, res, next) => {
   let email = `${req.params.email}`;
   let password = `${req.params.password}`;
 
-  let sql = `select *, count(user_id) as nb from user u where u.user_email="${email}" and u.user_password="${password}"`;
+  let sql = ` SELECT *, count(user_id) as nb 
+              FROM user u 
+              WHERE u.user_email = "${email}" 
+              AND u.user_password = "${password}"`;
   let query = req.db.query(sql, (err, results) => {
     if (err) return  err;
     let _userExist = results[0].nb;

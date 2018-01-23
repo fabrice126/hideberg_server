@@ -1,4 +1,6 @@
 export default {
-    website: (_, { id }, { models: { website } }) => website.findById(id),
-    websites: (_, args, { models: { website } }) => website.findAll(args),
+    website: (_, { website_id }, { models: { website } }) => website.findById(website_id),
+    websites: (_, args, { models: { website } }) => website.findAll(),
+    websitesLimit: (_, args, { models: { website } }) => website.findAll(args),
+
 }

@@ -1,4 +1,6 @@
 export default {
-    continent: (_, { id }, { models: { continent } }) => continent.findById(id),
-    continents: (_, args, { models: { continent } }) => continent.findAll(args),
+    continent: (_, { continent_id }, { models: { continent } }) => continent.findById(continent_id),
+    continents: (_, args, { models: { continent } }) => continent.findAll(),
+    continentsLimit: (_, args, { models: { continent } }) => continent.findAll(args),
+    continentByLabel: (_, continent_label, { models: { continent } }) => continent.findOne({ where: continent_label }),
 }
