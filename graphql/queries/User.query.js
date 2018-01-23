@@ -1,4 +1,4 @@
 export default {
-    user: (_, { id }, { model: { user } }) => user.findById(id),
-    users: (_, args, { model: { user } }) => user.findAll(args),
+    user: (_, { id }, { models: { user } }) => user.findById(id),
+    users: (_, args, { models: { user } }) => user.findAll(args),
 }
