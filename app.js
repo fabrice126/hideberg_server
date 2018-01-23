@@ -10,26 +10,22 @@ import cors from 'cors';
 import jwt from "jsonwebtoken";
 import jwtExpress from 'express-jwt';
 
-
+import expressGraphQL from 'express-graphql'
 import router from './routes/router';
 import api from './routes/api';
 import mysql from 'mysql';
 import _confDB from './config/_confDB';
-import db from './models'
+import models from './models';
+import schema from './graphql/schema.graphql';
 
 var app = express();
 app.use(helmet());
 app.use(compression());
 app.use(cors('*'));
 
-// const db = mysql.createConnection(_confDB);
-// db.connect((err) => {
-//   if (err) console.log(err);
-//   else console.log('MySql connected');
-// });
 
 app.use(function (req, res, next) {
-  req.db = db;
+  req.models = models;
   next();
 });
 
@@ -46,15 +42,19 @@ app.use(cookieParser());
 
 app.use('/', router);
 app.use('/api', api);
+app.use('/graphql', expressGraphQL({
+  schema: schema,
+  graphiql: true
+}));
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

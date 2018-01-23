@@ -1,0 +1,100 @@
+query continent {
+  continent(continent_id: 5) {
+    continent_id
+    continent_label
+  }
+}
+
+query continents {
+  continents {
+    continent_id
+    continent_label
+  }
+}
+
+query continentByLabel {
+  continentByLabel(continent_label: "asia") {
+    continent_id
+    continent_label
+  }
+}
+
+query countriesByContinentId {
+  continent(continent_id: 3) {
+    continent_id
+    continent_label
+    countries {
+      country_label
+      country_id
+    }
+  }
+}
+
+query countriesByContinentLabel {
+  continentByLabel(continent_label: "europe") {
+    continent_id
+    continent_label
+    countries {
+      country_label
+      country_id
+    }
+  }
+}
+
+query countriesList {
+  countries {
+    country_id
+    country_continent_id
+    country_label
+    country_politic
+    country_cv
+    country_diplomatic
+    links {
+      link_url
+    }
+    annonces {
+      annonce_description
+    }
+  }
+}
+
+query countryById {
+  country(country_id: 3) {
+    country_id
+    country_continent_id
+    country_label
+    country_politic
+    country_cv
+    country_diplomatic
+    links {
+      link_url
+    }
+  }
+}
+
+query countryByLabel {
+  countryByLabel(country_label: "france") {
+    country_id
+    country_continent_id
+    country_label
+    country_politic
+    country_cv
+    country_diplomatic
+    links {
+      link_url
+    }
+  }
+}
+
+query sectorList {
+  sectors {
+    sector_id
+    sector_label
+  }
+}
+query linksBySectorOfCountru {
+	countryByLabel(country_label:"france"){
+    country_label,
+    sec
+  }
+}
