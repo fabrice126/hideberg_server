@@ -1,0 +1,43 @@
+[{
+        "annonce_id": "1",
+        "annonce_website_id": "5",
+        "annonce_sector_id": "1",
+        "annonce_country_id": "3",
+        "annonce_description": "Description du poste dans le domaine du \"Design\" en \"France\" par \"accenture\""
+    },
+    {
+        "annonce_id": "2",
+        "annonce_website_id": "6",
+        "annonce_sector_id": "1",
+        "annonce_country_id": "3",
+        "annonce_description": "Description du poste dans le domaine du \"Design\" en \"France\" par \"admincompta\""
+    },
+    {
+        "annonce_id": "3",
+        "annonce_website_id": "7",
+        "annonce_sector_id": "1",
+        "annonce_country_id": "3",
+        "annonce_description": "Description du poste dans le domaine du \"Design\" en \"France\" par \"aeroemploiformation\""
+    },
+    {
+        "annonce_id": "4",
+        "annonce_website_id": "8",
+        "annonce_sector_id": "1",
+        "annonce_country_id": "3",
+        "annonce_description": "Description du poste dans le domaine du \"Design\" en \"France\" par \"angellist\""
+    },
+    {
+        "annonce_id": "5",
+        "annonce_website_id": "46",
+        "annonce_sector_id": "5",
+        "annonce_country_id": "3",
+        "annonce_description": "Description du poste dans le domaine du \"Programs\" en \"France\" par \"jobrapido\""
+    },
+    {
+        "annonce_id": "6",
+        "annonce_website_id": "38",
+        "annonce_sector_id": "2",
+        "annonce_country_id": "3",
+        "annonce_description": "Dans un pays en pleine transition num\u00e9rique, le futur stagiaire #Prox-i saura faire preuve d\u2019une forte capacit\u00e9 d\u2019int\u00e9gration\/adaptation, dans un environnement de travail sous le soleil des tropiques, les pieds dans l\u2019eau : )"
+    }
+]

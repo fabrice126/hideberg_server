@@ -1,0 +1,105 @@
+[{
+        "country_id": "1",
+        "country_continent_id": "3",
+        "country_label": "austria",
+        "country_link_politic": null,
+        "country_link_cv": null,
+        "country_link_diplomatic": null
+    },
+    {
+        "country_id": "2",
+        "country_continent_id": "3",
+        "country_label": "belgium",
+        "country_link_politic": null,
+        "country_link_cv": null,
+        "country_link_diplomatic": null
+    },
+    {
+        "country_id": "3",
+        "country_continent_id": "3",
+        "country_label": "france",
+        "country_link_politic": null,
+        "country_link_cv": "http:\/\/europass.cedefop.europa.eu\/sites\/default\/files\/europass_cv_instructions_fr.pdf",
+        "country_link_diplomatic": null
+    },
+    {
+        "country_id": "4",
+        "country_continent_id": "3",
+        "country_label": "germany",
+        "country_link_politic": null,
+        "country_link_cv": null,
+        "country_link_diplomatic": null
+    },
+    {
+        "country_id": "5",
+        "country_continent_id": "3",
+        "country_label": "hungary",
+        "country_link_politic": null,
+        "country_link_cv": null,
+        "country_link_diplomatic": null
+    },
+    {
+        "country_id": "6",
+        "country_continent_id": "3",
+        "country_label": "irland",
+        "country_link_politic": null,
+        "country_link_cv": null,
+        "country_link_diplomatic": null
+    },
+    {
+        "country_id": "7",
+        "country_continent_id": "3",
+        "country_label": "italy",
+        "country_link_politic": null,
+        "country_link_cv": null,
+        "country_link_diplomatic": null
+    },
+    {
+        "country_id": "8",
+        "country_continent_id": "3",
+        "country_label": "luxembourg",
+        "country_link_politic": null,
+        "country_link_cv": null,
+        "country_link_diplomatic": null
+    },
+    {
+        "country_id": "9",
+        "country_continent_id": "3",
+        "country_label": "netherlands",
+        "country_link_politic": null,
+        "country_link_cv": null,
+        "country_link_diplomatic": null
+    },
+    {
+        "country_id": "10",
+        "country_continent_id": "3",
+        "country_label": "spain",
+        "country_link_politic": null,
+        "country_link_cv": null,
+        "country_link_diplomatic": null
+    },
+    {
+        "country_id": "11",
+        "country_continent_id": "3",
+        "country_label": "portugal",
+        "country_link_politic": null,
+        "country_link_cv": null,
+        "country_link_diplomatic": null
+    },
+    {
+        "country_id": "12",
+        "country_continent_id": "3",
+        "country_label": "swissland",
+        "country_link_politic": null,
+        "country_link_cv": null,
+        "country_link_diplomatic": null
+    },
+    {
+        "country_id": "13",
+        "country_continent_id": "3",
+        "country_label": "uk",
+        "country_link_politic": null,
+        "country_link_cv": null,
+        "country_link_diplomatic": null
+    }
+]

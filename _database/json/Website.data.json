@@ -1,0 +1,317 @@
+[{
+        "website_id": "5",
+        "website_label": "accenture"
+    },
+    {
+        "website_id": "6",
+        "website_label": "admincompta"
+    },
+    {
+        "website_id": "7",
+        "website_label": "aeroemploiformation"
+    },
+    {
+        "website_id": "8",
+        "website_label": "angellist"
+    },
+    {
+        "website_id": "9",
+        "website_label": "apec"
+    },
+    {
+        "website_id": "10",
+        "website_label": "archibat"
+    },
+    {
+        "website_id": "11",
+        "website_label": "azertyjobs"
+    },
+    {
+        "website_id": "12",
+        "website_label": "batiactu"
+    },
+    {
+        "website_id": "13",
+        "website_label": "beepjob"
+    },
+    {
+        "website_id": "14",
+        "website_label": "cadremploi"
+    },
+    {
+        "website_id": "16",
+        "website_label": "cadresonline"
+    },
+    {
+        "website_id": "17",
+        "website_label": "carriereindustrie"
+    },
+    {
+        "website_id": "18",
+        "website_label": "chooseyoourboss"
+    },
+    {
+        "website_id": "19",
+        "website_label": "designanddesign"
+    },
+    {
+        "website_id": "20",
+        "website_label": "designfax"
+    },
+    {
+        "website_id": "21",
+        "website_label": "developpezcom"
+    },
+    {
+        "website_id": "22",
+        "website_label": "dogfinance"
+    },
+    {
+        "website_id": "23",
+        "website_label": "dotjobs"
+    },
+    {
+        "website_id": "24",
+        "website_label": "ecoleboulle"
+    },
+    {
+        "website_id": "25",
+        "website_label": "ecoledesconde"
+    },
+    {
+        "website_id": "26",
+        "website_label": "efinancialcareers"
+    },
+    {
+        "website_id": "27",
+        "website_label": "emploimontagne"
+    },
+    {
+        "website_id": "28",
+        "website_label": "emploipro"
+    },
+    {
+        "website_id": "29",
+        "website_label": "etapes"
+    },
+    {
+        "website_id": "30",
+        "website_label": "fashionjob"
+    },
+    {
+        "website_id": "31",
+        "website_label": "fnau"
+    },
+    {
+        "website_id": "32",
+        "website_label": "glassdoor"
+    },
+    {
+        "website_id": "33",
+        "website_label": "globalsportsjobs"
+    },
+    {
+        "website_id": "34",
+        "website_label": "graphicjobs"
+    },
+    {
+        "website_id": "35",
+        "website_label": "hellowork"
+    },
+    {
+        "website_id": "36",
+        "website_label": "hudson"
+    },
+    {
+        "website_id": "37",
+        "website_label": "iledefrancelordredesarchitectes"
+    },
+    {
+        "website_id": "38",
+        "website_label": "indeed"
+    },
+    {
+        "website_id": "39",
+        "website_label": "iquesta"
+    },
+    {
+        "website_id": "40",
+        "website_label": "jobandcom"
+    },
+    {
+        "website_id": "41",
+        "website_label": "jobculture"
+    },
+    {
+        "website_id": "42",
+        "website_label": "jobenstock"
+    },
+    {
+        "website_id": "43",
+        "website_label": "jobingenieur"
+    },
+    {
+        "website_id": "44",
+        "website_label": "jobintree"
+    },
+    {
+        "website_id": "45",
+        "website_label": "jobmarketingvente"
+    },
+    {
+        "website_id": "46",
+        "website_label": "jobrapido"
+    },
+    {
+        "website_id": "47",
+        "website_label": "jobsintech"
+    },
+    {
+        "website_id": "48",
+        "website_label": "jobsmart"
+    },
+    {
+        "website_id": "49",
+        "website_label": "jobtech"
+    },
+    {
+        "website_id": "50",
+        "website_label": "jobtic"
+    },
+    {
+        "website_id": "51",
+        "website_label": "jooble"
+    },
+    {
+        "website_id": "52",
+        "website_label": "keljob"
+    },
+    {
+        "website_id": "53",
+        "website_label": "lagazettedulaboratoire"
+    },
+    {
+        "website_id": "54",
+        "website_label": "lelieududesign"
+    },
+    {
+        "website_id": "55",
+        "website_label": "lemoniteuremploi"
+    },
+    {
+        "website_id": "56",
+        "website_label": "lesjeudiscom"
+    },
+    {
+        "website_id": "57",
+        "website_label": "linkedin"
+    },
+    {
+        "website_id": "58",
+        "website_label": "linkfinance"
+    },
+    {
+        "website_id": "59",
+        "website_label": "meteojob"
+    },
+    {
+        "website_id": "60",
+        "website_label": "monster"
+    },
+    {
+        "website_id": "61",
+        "website_label": "neuvoo"
+    },
+    {
+        "website_id": "62",
+        "website_label": "optioncarriere"
+    },
+    {
+        "website_id": "63",
+        "website_label": "ordredesarchtiectes"
+    },
+    {
+        "website_id": "64",
+        "website_label": "outdoorsportsvalley"
+    },
+    {
+        "website_id": "65",
+        "website_label": "poleemploi"
+    },
+    {
+        "website_id": "66",
+        "website_label": "profilculture"
+    },
+    {
+        "website_id": "67",
+        "website_label": "qapa"
+    },
+    {
+        "website_id": "68",
+        "website_label": "recrut"
+    },
+    {
+        "website_id": "69",
+        "website_label": "regionsjob"
+    },
+    {
+        "website_id": "70",
+        "website_label": "remixjobs"
+    },
+    {
+        "website_id": "71",
+        "website_label": "roberthalf"
+    },
+    {
+        "website_id": "72",
+        "website_label": "sportcarriere"
+    },
+    {
+        "website_id": "73",
+        "website_label": "sportstrategies"
+    },
+    {
+        "website_id": "74",
+        "website_label": "sportyjob"
+    },
+    {
+        "website_id": "75",
+        "website_label": "stackoverflow"
+    },
+    {
+        "website_id": "76",
+        "website_label": "startuponly"
+    },
+    {
+        "website_id": "77",
+        "website_label": "stepstone"
+    },
+    {
+        "website_id": "78",
+        "website_label": "techniquedelingenieur"
+    },
+    {
+        "website_id": "79",
+        "website_label": "totaljobs"
+    },
+    {
+        "website_id": "80",
+        "website_label": "trovit"
+    },
+    {
+        "website_id": "81",
+        "website_label": "uxjobs"
+    },
+    {
+        "website_id": "82",
+        "website_label": "viadeo"
+    },
+    {
+        "website_id": "83",
+        "website_label": "vitijob"
+    },
+    {
+        "website_id": "84",
+        "website_label": "xpatjobs"
+    }
+]

@@ -1,0 +1,25 @@
+[{
+        "continent_id": "1",
+        "continent_label": "africa"
+    },
+    {
+        "continent_id": "2",
+        "continent_label": "asia"
+    },
+    {
+        "continent_id": "3",
+        "continent_label": "europe"
+    },
+    {
+        "continent_id": "4",
+        "continent_label": "northamerica"
+    },
+    {
+        "continent_id": "5",
+        "continent_label": "southamerica"
+    },
+    {
+        "continent_id": "6",
+        "continent_label": "oceania"
+    }
+]

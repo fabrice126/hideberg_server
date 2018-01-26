@@ -57,7 +57,7 @@ router.get('/link/:sector/:country/:numpage/:nbpage', (req, res, next) => {
   let numpage = `${req.params.numpage}`;
   let elemNbPerPage = `${req.params.nbpage}`;
 
-  let sql = ` SELECT link_label, website_label 
+  let sql = ` SELECT link_url, website_label 
               FROM link l, country c, sector s, website w 
               WHERE l.link_country_id = c.country_id 
               AND l.link_sector_id = s.sector_id 
@@ -98,7 +98,7 @@ router.get('/confMAP', function (req, res, next) {
 var getWebsites = (req, res, next) => {
   let sector = `${req.params.sector}`;
   let country = `${req.params.country}`;
-  let sql = ` SELECT link_label, website_label 
+  let sql = ` SELECT link_url, website_label 
               FROM link l, country c, sector s, website w 
               WHERE l.link_country_id = c.country_id 
               AND l.link_sector_id = s.sector_id 

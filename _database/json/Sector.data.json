@@ -1,0 +1,25 @@
+[{
+        "sector_id": "1",
+        "sector_label": "design"
+    },
+    {
+        "sector_id": "2",
+        "sector_label": "engineer"
+    },
+    {
+        "sector_id": "3",
+        "sector_label": "finance"
+    },
+    {
+        "sector_id": "4",
+        "sector_label": "marketing"
+    },
+    {
+        "sector_id": "5",
+        "sector_label": "programs"
+    },
+    {
+        "sector_id": "6",
+        "sector_label": "architectures"
+    }
+]

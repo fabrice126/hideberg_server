@@ -13,10 +13,19 @@ import jwtExpress from 'express-jwt';
 import expressGraphQL from 'express-graphql'
 import router from './routes/router';
 import api from './routes/api';
-import mysql from 'mysql';
 import _confDB from './config/_confDB';
 import models from './models';
 import schema from './graphql/schema.graphql';
+import configDB from './config/_confDB';
+import mysql from 'mysql';
+
+const db = mysql.createConnection({
+  host: configDB.database.host,
+  port: configDB.database.port,
+  user: configDB.database.user,
+  password: configDB.database.password,
+  database: configDB.database.name,
+});
 
 var app = express();
 app.use(helmet());
@@ -26,6 +35,7 @@ app.use(cors('*'));
 
 app.use(function (req, res, next) {
   req.models = models;
+  req.db = db;
   next();
 });
 
