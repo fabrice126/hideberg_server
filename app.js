@@ -18,6 +18,7 @@ import models from './models';
 import schema from './graphql/schema.graphql';
 import configDB from './config/_confDB';
 import mysql from 'mysql';
+import csurf from 'csurf';
 
 const db = mysql.createConnection({
   host: configDB.database.host,
@@ -35,6 +36,7 @@ app.use(cors('*'));
 
 app.use(function (req, res, next) {
   req.models = models;
+  var csrfProtection = csrf({ cookie: true })
   req.db = db;
   next();
 });
