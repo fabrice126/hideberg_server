@@ -18,7 +18,7 @@ import models from './models';
 import schema from './graphql/schema.graphql';
 import configDB from './config/_confDB';
 import mysql from 'mysql';
-import csurf from 'csurf';
+import csrf from 'csurf';
 
 const db = mysql.createConnection({
   host: configDB.database.host,
