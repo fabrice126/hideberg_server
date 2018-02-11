@@ -14,12 +14,12 @@ import expressGraphQL from 'express-graphql'
 import router from './routes/router';
 import api from './routes/api';
 import _confDB from './config/_confDB';
+import _confLogin from './config/_confLogin';
+import configDB from './config/_confDB';
 import models from './models';
 import schema from './graphql/schema.graphql';
-import configDB from './config/_confDB';
 import mysql from 'mysql';
 import csrf from 'csurf';
-
 const db = mysql.createConnection({
   host: configDB.database.host,
   port: configDB.database.port,
@@ -41,14 +41,14 @@ app.use(function (req, res, next) {
   next();
 });
 
-
+// app.use(jwtExpress({ secret: _confLogin.secretKey }).unless({ path: ['/','/api/login', '/api/signup'] }));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(cookieParser());
 
 

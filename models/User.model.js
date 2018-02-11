@@ -110,15 +110,27 @@ export default (sequelize, DataTypes) => {
         });
     User.hook('beforeCreate', async (user, options) => {
         try {
-            if (user.changed("password") || user.isNewRecord()) {
-                console.log('NEW USER OR PASSWORD MODIFIED', user.changed("password"), user.isNewRecord());
-                user.password = await bcrypt.hash(user.password, 10);
+            if (user.changed(`${tableName}_password`) || user.isNewRecord) {
+                console.log('NEW USER OR PASSWORD MODIFIED', user.changed(`${tableName}_password`), user.isNewRecord);
+                user[`${tableName}_password`] = await bcrypt.hash(user[`${tableName}_password`], 10);
             }
+            return user;
         } catch (error) {
-            throw new Error(error);
+            throw "Erreur lors de la création de l'utilisateur";
         }
-        return user;
     });
+    // Create method to compare password input to password saved in database
+    User.prototype.comparePassword = function (pw, cb) {
+        const user = this;
+        bcrypt.compare(pw, user.user_password, function (err, isMatch) {
+            if (err) {
+                console.log("comparePassword ERROR");
+                return cb(err, isMatch);
+            }
+            console.log("comparePassword OK");
+            cb(null, isMatch);
+        });
+    };
 
     return User;
 }

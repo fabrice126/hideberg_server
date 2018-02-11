@@ -5,6 +5,8 @@ import fs from 'fs';
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import jwtExpress from 'express-jwt';
+import { check, validationResult } from 'express-validator/check';
+import { matchedData, sanitize } from 'express-validator/filter';
 var router = express.Router();
 
 /**
@@ -250,21 +252,72 @@ router.get('/user/login/:email/:password', (req, res, next) => {
     let token = "";
     if (_userExist) {
       _msg = true;
-      token = jwt.sign({ username: results[0].user_username }, confLogin.secretKey, { expiresIn: '1h' });
+      token = jwt.sign({ username: results[0].user_username }, _confLogin.secretKey, { expiresIn: '1h' });
     }
-    res.json({ res: results, token: token, secretKey: confLogin.secretKey });
+    res.json({ res: results, token: token, secretKey: _confLogin.secretKey });
     // token in localStorage (client js) + authorization
   });
 });
 
-router.get('/protected/:token', (req, res, next) => {
-  // token / req.headers.authorization
-  console.log('===> req.params.token : ' + req.params.token);
-  //verify a token symmetric
-  jwt.verify(req.params.token, confLogin.secretKey, function (err, decoded) {
-    if (err) return err;
-    res.json({ decoded: decoded });
-  });
+router.post('/signup', async (req, res) => {
+  //Cette API n'est pas disponible en mode production
+  try {
+    const { user: User } = req.models;
+    console.log(req.body);
+    let { user_email, user_password, user_affiliated_sector, user_education_level, user_search_sector, user_nationality, user_destination } = req.body;
+    console.log(req.body);
+    if (!user_email || !user_password) return res.status(401).json("Vous devez saisir un mail et un mot de passe");
+    user_email = user_email.toLowerCase();
+    // check('username').isEmail().withMessage('must be an email');
+    let newUser = await User.create({
+      user_email,
+      user_password,
+      user_affiliated_sector,
+      user_education_level,
+      user_search_sector,
+      user_nationality,
+      user_destination
+    });
+    // Create token if the user_password matched and no error was thrown
+    var token = jwt.sign({ user_id: newUser.user_id, user_email: newUser.user_email }, _confLogin.secretKey, { expiresIn: 4 * 3600 * 24 });
+    return res.json({
+      success: true,
+      token: 'Bearer ' + token
+    });
+  } catch (err) {
+    return res.status(401).json({ error_msg: err });
+  }
+});
+
+router.post('/login', async function (req, res, next) {
+  try {
+    const { user: User } = req.models;
+    let { user_email, user_password } = req.body;
+    user_email = user_email.toLowerCase()
+    // check('username').isEmail().withMessage('must be an email')
+    const user = await User.findOne({ where: { user_email } });
+    if (!user) return res.status(401).json("Aucun utilisateur trouvé");
+    // Check if user_password matches
+    user.comparePassword(user_password, (err, isMatch) => {
+      if (!isMatch || err) return res.status(401).json("Mauvais mot de passe");
+      const { user_id, user_email } = user;
+      // Create token if the user_password matched and no error was thrown
+      var token = jwt.sign({ user_id, user_email }, _confLogin.secretKey, { expiresIn: 4 * 3600 * 24 });
+      return res.json({
+        success: true,
+        token: 'Bearer ' + token
+      });
+    });
+  } catch (err) {
+    return res.status(401).json(err);
+  }
+});
+
+
+router.get('/auth', jwtExpress({ secret: _confLogin.secretKey }), (req, res, next) => {
+  console.log(req.user);
+  if (!req.user) return res.sendStatus(401);
+  res.json(req.user);
 });
 
 
@@ -274,7 +327,7 @@ router.get('/transformWebsiteSQL', function (req, res, next) {
   let theLine = "";
   lr.eachLine(rootPath, function (line, last) {
     theLine += "INSERT INTO `website`(`website_id`, `website_label`) VALUES ('','" + line + "');";
-
+ 
     if (last) {
       res.json({ theLine: theLine })
     }
