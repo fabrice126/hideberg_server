@@ -83,7 +83,7 @@ export default (sequelize, DataTypes) => {
         [`${tableName}_education_level`]: {
             type: Sequelize.STRING(50),
             validate: {
-                len: { args: [0, 50], msg: "The field 'education level' is too long" },
+                len: { args: [0, 100], msg: "The field 'education level' is too long" },
             }
         },
         [`${tableName}_affiliated_sector`]: {
