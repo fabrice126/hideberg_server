@@ -30,7 +30,6 @@ fs.readdirSync(__dirname).filter((file) => {
 }).forEach((file) => {
     var model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
-    console.log(db[model.name]);
 });
 Object.keys(db).forEach((modelName) => {
     if ("associate" in db[modelName]) db[modelName].associate(db);
@@ -63,20 +62,23 @@ db.Op = Op;
 
 sequelize.authenticate().then(async () => {
     console.log('Connection has been established successfully.');
+    console.log(process.env.NODE_ENV);
+    if (process.env.NODE_ENV === "production") return;
     try {
-        await sequelize.sync({ force: true });
-        await db.user.bulkCreate(UserData);
-        await db.continent.bulkCreate(ContinentData);
-        await db.country.bulkCreate(CountryData);
-        await db.website.bulkCreate(WebsiteData);
-        await db.sector.bulkCreate(SectorData);
-        await db.annonce.bulkCreate(AnnonceData);
-        await db.link.bulkCreate(LinkData);
-        console.log("Inserted Successfully.");
+        // await sequelize.sync({ force: true });
+        // await db.user.bulkCreate(UserData);
+        // await db.continent.bulkCreate(ContinentData);
+        // await db.country.bulkCreate(CountryData);
+        // await db.website.bulkCreate(WebsiteData);
+        // await db.sector.bulkCreate(SectorData);
+        // await db.annonce.bulkCreate(AnnonceData);
+        // await db.link.bulkCreate(LinkData);
+        // console.log("Inserted Successfully.");
     } catch (err) {
         console.log("Fail to insert data", err);
     }
 }).catch(err => {
     console.error('Unable to connect to the database:', err);
 });
+process.on('SIGINT', () => sequelize.close().then(() => process.exit(0), () => process.exit(1)));
 export default db;
