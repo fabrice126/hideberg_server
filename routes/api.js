@@ -88,7 +88,7 @@ router.get('/continent/:continent/country/:country/sector/:sector/websites', (re
   let continent = `${req.params.continent}`;
   let country = `${req.params.country}`;
   let sector = `${req.params.sector}`;
-  let sql = ` SELECT link_url, website_label 
+  let sql = ` SELECT link_label, website_label 
               FROM link l, continent, country c, sector s, website w 
               WHERE continent.continent_id = c.country_continent_id 
               AND continent_label = "${continent}" 
