@@ -1,7 +1,7 @@
 import os from 'os';
 export default {
     database: {
-        name: "db_hideberg",
+        name: "db_hideberg_test",
         host: 'localhost',
         user: 'root',
         password: os.type() != 'Windows_NT' ? 'root' : "",
