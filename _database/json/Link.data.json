@@ -491,7 +491,7 @@
     {
         "link_id": "74",
         "link_country_id": "3",
-        "link_sector_id": "1",
+        "link_sector_id": "2",
         "link_website_id": "48",
         "link_url": "http:\/\/www.jobsmart.fr\/jobs?w=ingenieur&l="
     },
@@ -1264,5 +1264,12 @@
         "link_sector_id": "5",
         "link_website_id": "21",
         "link_url": "https:\/\/emploi.developpez.com\/"
+    },
+    {
+        "link_id": "186",
+        "link_country_id": "3",
+        "link_sector_id": "1",
+        "link_website_id": "48",
+        "link_url": "http:\/\/www.jobsmart.fr\/jobs?w=design&l="
     }
 ]

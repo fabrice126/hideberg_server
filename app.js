@@ -27,7 +27,7 @@ const db = mysql.createConnection({
   password: configDB.database.password,
   database: configDB.database.name,
 });
-
+console.log(configDB);
 var app = express();
 app.use(helmet());
 app.use(compression());
