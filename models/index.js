@@ -62,18 +62,18 @@ db.Op = Op;
 
 sequelize.authenticate().then(async () => {
     console.log('Connection has been established successfully.');
-    console.log(process.env.NODE_ENV);
+    console.log("NODE_ENV", process.env.NODE_ENV);
     if (process.env.NODE_ENV === "production") return;
     try {
-        await sequelize.sync({ force: true });
-        await db.user.bulkCreate(UserData);
-        await db.continent.bulkCreate(ContinentData);
-        await db.country.bulkCreate(CountryData);
-        await db.website.bulkCreate(WebsiteData);
-        await db.sector.bulkCreate(SectorData);
-        await db.annonce.bulkCreate(AnnonceData);
-        await db.link.bulkCreate(LinkData);
-        console.log("Inserted Successfully.");
+        // await sequelize.sync({ force: true });
+        // await db.user.bulkCreate(UserData);
+        // await db.continent.bulkCreate(ContinentData);
+        // await db.country.bulkCreate(CountryData);
+        // await db.website.bulkCreate(WebsiteData);
+        // await db.sector.bulkCreate(SectorData);
+        // await db.annonce.bulkCreate(AnnonceData);
+        // await db.link.bulkCreate(LinkData);
+        // console.log("Inserted Successfully.");
     } catch (err) {
         console.log("Fail to insert data", err);
     }
